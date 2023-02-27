@@ -1,0 +1,30 @@
+from aiogram import types
+from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup
+
+start = types.ReplyKeyboardMarkup(resize_keyboard=True)
+
+info = types.KeyboardButton('Information')
+stats = types.KeyboardButton('Stats')
+developer = types.KeyboardButton('Developer')
+weather = types.KeyboardButton('Weather')
+show_user = types.KeyboardButton('Show user')
+photo = types.KeyboardButton('Send photo')
+job_info = types.KeyboardButton('Job Info')
+dabase = types.KeyboardButton('Database')
+
+start.add(info, weather)
+start.add(developer, stats, dabase)
+start.add(show_user,photo)
+start.add(job_info)
+stats = types.InlineKeyboardMarkup()
+stats.add(InlineKeyboardButton(f"Yes",callback_data='join'))
+stats.add(InlineKeyboardButton(f"No",callback_data='cancel'))
+show_user = types.InlineKeyboardMarkup()
+show_user.add(InlineKeyboardButton(f"Wanna see my id",callback_data='show'))
+show_user.add(InlineKeyboardButton(f"Return",callback_data='back'))
+job_info = types.InlineKeyboardMarkup()
+job_info.add(InlineKeyboardButton(f'Microbiologist',callback_data='bio'))
+job_info.add(InlineKeyboardButton(f'PyDev',callback_data='pydev'))
+dabase = types.InlineKeyboardMarkup()
+dabase.add(InlineKeyboardButton(f"See Database", callback_data='database'))
+dabase.add(InlineKeyboardButton(f"Return", callback_data='back'))
